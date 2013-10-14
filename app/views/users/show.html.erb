@@ -8,16 +8,28 @@
 <p id="notice"><%= notice %></p>
 
 <!-- ○○にはユーザー名が -->
-<h1><>ユーザーID○○さん<>のマイページ</h1>
+<h1><%=@user.name%>さんのマイページ</h1>
 <!-- □には合計回答数-->
-<p>現在□題解答中</p>
+<p>現在<!-- <%=@answer_id%> -->題解答中</p>
 
 <div id = "mymenu">
  <ul>
-  <li>履歴</li>
-  <li>お気に入り</li>
-  <li>設定</li>
-  <li>ヘルプ</li>
+  <!-- <li>履歴</li> -->
+  <button type="button" name="log" value="a">
+  <font size="2">履歴</font>
+  </button>
+  <!-- <li>お気に入り</li> -->
+  <button type="button" name="fav" value="a">
+  <font size="2">お気に入り</font>
+  </button>
+  <!-- <li>設定</li> -->
+  <button type="button" name="set" value="a">
+  <font size="2">設定</font>
+  </button>
+  <!-- <li>ヘルプ</li> -->
+  <button type="button" name="hlp" value="a">
+  <font size="2">ヘルプ</font>
+  </button>
  </ul>
 </div>
 <div id = "mycontents">
