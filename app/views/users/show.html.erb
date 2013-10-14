@@ -1,3 +1,10 @@
+<!--マイ―ジへのリンク-->
+<ul id="nav">
+ <li id="mypage"><%= link_to 'MyPage', edit_user_path(@users) %></li>
+ <li id="title">タイトル</li>
+ <li id="question"><%= link_to 'Question', users_path(@question) %></li>
+</ul>
+
 <p id="notice"><%= notice %></p>
 
 <!-- ○○にはユーザー名が -->
