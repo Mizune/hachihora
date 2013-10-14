@@ -7,6 +7,41 @@ ul{
 	border: solid;
 	padding:10px;
 }
+
+#nav{
+	width:300px;
+	height:38px;
+	margin:auto;
+	padding:1px;
+	color:white;
+	border-bottom:1px solid white;
+	background: -moz-linear-gradient(top, rgba(85,163,201,1) 0%, rgba(50,97,120,1) 88%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(85,163,201,1)), color-stop(88%,rgba(50,97,120,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(85,163,201,1) 0%,rgba(50,97,120,1) 88%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(85,163,201,1) 0%,rgba(50,97,120,1) 88%); /* Opera 11.10+ */
+	background: linear-gradient(to bottom, rgba(85,163,201,1) 0%,rgba(50,97,120,1) 88%); /* W3C */
+	font-family:'Lucida Grande', Arial, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+	
+	li {
+		height:30px;
+		float:left;
+		border:none;
+		margin-right:0px;
+		padding-top:10px;
+	}
+	#mypage{
+		width:20%;
+	}
+	#title{
+		width:57.9%;
+		font-size:120%;
+	}
+	#question{
+		width:20%;
+	}
+}
+
+
 #mymenu{
 	float: left;
 	padding:10px;
