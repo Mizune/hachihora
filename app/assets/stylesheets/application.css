@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+body{
+	width:300px;
+	margin:auto;
+	text-align:center;
+}
+
+.textarea{
+	width:100%;
+	height:60px;
+}
+
+.field{
+	margin-top:10px;
+}
