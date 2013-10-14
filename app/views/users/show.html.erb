@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<!-- ○○にはユーザー名が -->
+<h1>ユーザーID○○さんのマイページ</h1>
+<!-- □には合計回答数-->
+<p>現在□題解答中</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div id = "mymenu">
+ <ul>
+  <li>履歴</li>
+  <li>お気に入り</li>
+  <li>設定</li>
+  <li>ヘルプ</li>
+ </ul>
+</div>
+<div id = "mycontents">
+ <p>
+  <!--メニューで選択された画面を表示します。Javascriptを使います-->
+ </p>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

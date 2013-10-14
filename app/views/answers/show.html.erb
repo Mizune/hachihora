@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Contents:</strong>
+  <strong>今日のお題:</strong><br />
   <%= @answer.contents %>
 </p>
-
 <p>
-  <strong>User:</strong>
-  <%= @answer.user_id %>
+	<strong>自分の解答</strong><br />
+	<!--ここに自分の解答を入れます-->
+	ここに自分の解答を表示させます。
 </p>
 
 <p>
-  <strong>Quiz:</strong>
+  <strong>みんなの解答:</strong><br />
+  <!--並び替え-->
+  <!--お気に入り-->
+  <!--他の人のユーザーID-->
+  <%= @answer.user_id %><br />
+  <!--みんなの解答-->
   <%= @answer.quiz_id %>
 </p>
 
