@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
     random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
     key = random.rand(Quiz.count)+1
     @odai = Quiz.find(key)
+    @answers = Answer.where(:quiz_id => @odai.id)
   end
 
   # GET /answers/new
@@ -33,6 +34,12 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user
+
+    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
+    key = random.rand(Quiz.count)+1
+    @odai = Quiz.find(key)
+
+    @answer.quiz = @odai
 
     respond_to do |format|
       if @answer.save

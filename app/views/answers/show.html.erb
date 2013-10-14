@@ -12,12 +12,14 @@
 
 <p>
   <strong>みんなの解答:</strong><br />
+  <% @answers.each do |answer| %>
   <!--並び替え-->
   <!--お気に入り-->
   <!--他の人のユーザーID-->
-  <%= @answer.user_id %><br />
+    <strong><%= answer.user.name %></strong>:
   <!--みんなの解答-->
-  <%= @answer.quiz_id %>
+    <%= answer.contents %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_answer_path(@answer) %>
