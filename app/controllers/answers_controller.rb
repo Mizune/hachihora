@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_random, only: [:show, :new, :create]
 
   # GET /answers
   # GET /answers.json
@@ -10,19 +11,11 @@ class AnswersController < ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
-    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
-    key = random.rand(Quiz.count)+1
-    @odai = Quiz.find(key)
-    @answers = Answer.where(:quiz_id => @odai.id)
   end
 
   # GET /answers/new
   def new
     @answer = Answer.new
-    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
-    key = random.rand(Quiz.count)+1
-    @odai = Quiz.find(key)
-    # @odai = random(day.day)
   end
 
   # GET /answers/1/edit
@@ -34,11 +27,6 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user
-
-    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
-    key = random.rand(Quiz.count)+1
-    @odai = Quiz.find(key)
-
     @answer.quiz = @odai
 
     respond_to do |format|
@@ -86,4 +74,21 @@ class AnswersController < ApplicationController
     def answer_params
       params.require(:answer).permit(:contents, :user_id, :quiz_id)
     end
+
+    def set_random
+      if Quiz.count > 0
+        random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
+        key = random.rand(Quiz.count)+1
+        begin
+          @odai = Quiz.find(key)
+          @answers = Answer.where(:quiz_id => @odai.id)
+        rescue
+          @odai = Quiz.new
+          @answers = []
+        end
+      else
+        @odai = Quiz.new
+        @answers = []
+      end
+  end
 end
