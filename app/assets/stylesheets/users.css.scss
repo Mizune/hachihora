@@ -1,3 +1,23 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul{
+	list-style-type: none;
+	border: solid;
+	padding:10px;
+}
+#mymenu{
+	float: left;
+	padding:10px;
+	}
+	
+#mycontents{
+	width:160px;
+	height:200px;
+	float: right;
+	border:solid;
+}
+#sita{
+	clear:right;
+}

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <!-- ○○にはユーザー名が -->
-<h1>ユーザーID○○さんのマイページ</h1>
+<h1><>ユーザーID○○さん<>のマイページ</h1>
 <!-- □には合計回答数-->
 <p>現在□題解答中</p>
 
@@ -18,6 +18,7 @@
   <!--メニューで選択された画面を表示します。Javascriptを使います-->
  </p>
 </div>
-
+<div id="sita">
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
