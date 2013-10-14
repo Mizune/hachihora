@@ -1,17 +1,12 @@
 <!--マイ―ジへのリンク-->
 <ul id="nav">
  <li id="mypage"><%= link_to 'MyPage', edit_user_path(@users) %></li>
- <li id="title">タイトル</li>
+ <li id="title"><%=@user.name%>さんのマイページ</li>
  <li id="question"><%= link_to 'Question', users_path(@question) %></li>
 </ul>
-
 <p id="notice"><%= notice %></p>
-
-<!-- ○○にはユーザー名が -->
-<h1><%=@user.name%>さんのマイページ</h1>
 <!-- □には合計回答数-->
 <p>現在<!-- <%=@answer_id%> -->題解答中</p>
-
 <div id = "mymenu">
  <ul>
   <!-- <li>履歴</li> -->
