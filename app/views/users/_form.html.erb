@@ -19,6 +19,14 @@
     E-mail<br>
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    パスワード<br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    パスワード（再入力）<br>
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="actions">
     <%= f.submit 'Registration' %>
   </div>
