@@ -2,12 +2,12 @@
 
 <p>
   <strong>今日のお題:</strong><br />
-  <%= @answer.contents %>
+  <div id="odai"><%= @odai.contents %></div> 
 </p>
 <p>
 	<strong>自分の解答</strong><br />
 	<!--ここに自分の解答を入れます-->
-	ここに自分の解答を表示させます。
+	<%= @answer.contents %>
 </p>
 
 <p>

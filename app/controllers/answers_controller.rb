@@ -10,6 +10,9 @@ class AnswersController < ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
+    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
+    key = random.rand(Quiz.count)+1
+    @odai = Quiz.find(key)
   end
 
   # GET /answers/new
