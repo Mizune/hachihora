@@ -12,8 +12,8 @@
  *= require_tree .
  */
 body{
-	width:300px;
-	margin:auto;
+	width:100%;
+	margin:0 auto;
 	text-align:center;
 }
 
