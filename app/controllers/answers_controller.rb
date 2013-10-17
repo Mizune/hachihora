@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_random, only: [:show, :new, :create]
+  before_action :onetime, only: [:new]
 
   # GET /answers
   # GET /answers.json
@@ -10,19 +12,11 @@ class AnswersController < ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
-    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
-    key = random.rand(Quiz.count)+1
-    @odai = Quiz.find(key)
-    @answers = Answer.where(:quiz_id => @odai.id)
   end
 
   # GET /answers/new
   def new
     @answer = Answer.new
-    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
-    key = random.rand(Quiz.count)+1
-    @odai = Quiz.find(key)
-    # @odai = random(day.day)
   end
 
   # GET /answers/1/edit
@@ -34,11 +28,6 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.user = current_user
-
-    random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
-    key = random.rand(Quiz.count)+1
-    @odai = Quiz.find(key)
-
     @answer.quiz = @odai
 
     respond_to do |format|
@@ -86,4 +75,31 @@ class AnswersController < ApplicationController
     def answer_params
       params.require(:answer).permit(:contents, :user_id, :quiz_id)
     end
+
+    def set_random
+      if Quiz.count > 0
+        random = Random.new((Date.today-Date.new(1970,1,1)).to_i)
+        key = random.rand(Quiz.count)
+        begin
+          @odai = Quiz.all.offset(key).limit(1)[0]
+          @answers = Answer.where(:quiz_id => @odai.id)
+        rescue
+          @odai = Quiz.new
+          @answers = []
+        end
+      else
+        @odai = Quiz.new
+        @answers = []
+      end
+  end
+
+  def onetime
+    newestAnswer = @odai.answers.where(:user_id => 6).order('updated_at desc').limit(1)[0]
+    if newestAnswer
+      answerDate = newestAnswer.updated_at.to_date
+      if ((Date.today() - answerDate).to_i == 0)
+        redirect_to newestAnswer
+      end
+    end
+  end
 end
