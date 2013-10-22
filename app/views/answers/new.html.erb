@@ -1,4 +1,9 @@
-<h1>今日のお題</h1>
+<!--マイ―ジへのリンク-->
+<ul id="nav">
+ <li id="mypage"><%= link_to 'MyPage', edit_user_path(@users) %></li>
+ <li id="title">今日のお題</li>
+ <li id="question"><%= link_to 'Question', users_path(@question) %></li>
+</ul>
 
 <div id="odai"><%= @odai.contents %></div>
 
