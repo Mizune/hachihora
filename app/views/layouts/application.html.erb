@@ -3,10 +3,11 @@
 <head>
   <title>Hachihora</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<!-- current_user が存在したら headerを表示する　users(:user_id) -->
 <%= yield %>
 
 </body>
