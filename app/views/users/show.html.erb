@@ -1,6 +1,6 @@
 <!--マイ―ジへのリンク-->
 <ul id="nav">
- <li id="mypage"><%= link_to 'MyPage', edit_user_path(@users) %></li>
+ <li id="mypage"><%= link_to 'MyPage', current_user %></li>
  <li id="title"><%=@user.name%>さんのマイページ</li>
  <li id="question"><%= link_to 'Question', users_path(@question) %></li>
 </ul>
