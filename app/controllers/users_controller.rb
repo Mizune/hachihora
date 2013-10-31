@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :check_logined, only:[:new,:create]
 
+  before_action 
+
+  http_basic_authenticate_with name: 'user' , password: 'password' ,:only => [:index] if Rails.env.production?
   # GET /users
   # GET /users.json
   def index
