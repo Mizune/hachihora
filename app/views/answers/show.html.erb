@@ -1,9 +1,9 @@
 <!--マイ―ジへのリンク-->
 <ul id="nav">
  <!--<li id="mypage"><%= link_to 'MyPage', edit_user_path(@users) %></li>-->
- <li id="mypage"><%= link_to image_tag('mag_w.png', {:border=>'0',:alt=>'マイページ',:size=>"30x30"}), @current_user %>
+ <li id="mypage"><%= link_to image_tag('user_w.png', {:border=>'0',:alt=>'マイページ',:size=>"30x30"}), @current_user %>
  <li id="title">今日のお題と回答</li>
- <li id="question"><%= link_to 'Question', users_path(@question) %></li>
+ <li id="question"><%= link_to image_tag('dialog_w.png', {:border=>'0',:alt=>'今日のお題',:size=>"30x30"}),users_path(@question) %></li>
 </ul>
 
 <div id="odai"><%= @odai.contents %></div> 
